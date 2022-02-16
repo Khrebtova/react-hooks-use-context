@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import ThemedButton from "./ThemedButton";
 import DarkModeToggle from "./DarkModeToggle";
 import defaultUser from "../data";
+import {UserContext} from "../context/User"
+import { ThemeContext } from "../context/Theme";
 
-function Header({ theme, setTheme, user, setUser }) {
+function Header() {
+  
+  const {theme, setTheme}= useContext(ThemeContext)
+  const [user, setUser] = useContext(UserContext)
+
   function handleLogin() {
     if (user) {
       setUser(null);
